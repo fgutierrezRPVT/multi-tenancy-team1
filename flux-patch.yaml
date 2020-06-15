@@ -5,15 +5,16 @@ metadata:
   annotations:
     flux.weave.works/automated: "true"
     flux.weave.works/tag.podinfod: semver:~1.7
-  name: frontend
+  name: backend
   namespace: team1
 spec:
   template:
     spec:
       $setElementOrder/containers:
       - name: podinfod
+      - name: hello-world
       containers:
-      - image: quay.io/stefanprodan/podinfo:1.7.0
+      - image: quay.io/stefanprodan/podinfo:1.7.4
         name: podinfod
 ---
 apiVersion: apps/v1
@@ -22,7 +23,7 @@ metadata:
   annotations:
     flux.weave.works/automated: "true"
     flux.weave.works/tag.podinfod: semver:~1.7
-  name: backend
+  name: frontend
   namespace: team1
 spec:
   template:
@@ -30,5 +31,5 @@ spec:
       $setElementOrder/containers:
       - name: podinfod
       containers:
-      - image: quay.io/stefanprodan/podinfo:1.7.0
+      - image: quay.io/stefanprodan/podinfo:1.7.4
         name: podinfod
