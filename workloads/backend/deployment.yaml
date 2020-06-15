@@ -65,9 +65,9 @@ spec:
               cpu: 100m
               memory: 64Mi
         - name: hello-world
-          image: hello-world:latest
+          image: tutum/hello-world:latest
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080
+            - containerPort: 80
               name: http
               protocol: TCP
